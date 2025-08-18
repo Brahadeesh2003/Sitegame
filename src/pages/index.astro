@@ -1,6 +1,37 @@
-<nav>
-  <a href="/">Home</a> |
-  <a href="/about">About</a> |
-  <a href="/blog">Blog</a>
-</nav>
+---
 
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+
+
+import Layout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Home Page";
+---
+
+
+
+<Navigation />
+<Layout title="Home">
+
+
+  <h2>Welcome to Game Reviews Hub</h2>
+  <p>Your stop for in-depth story-driven game reviews.</p>
+  <Footer />
+  <script>
+    import "../scripts/menu.js";
+  </script>
+  <div class="card">
+    <h3>Official Game Websites</h3>
+    <ul>
+      <li><a href="https://www.rockstargames.com/reddeadredemption2" target="_blank">Red Dead Redemption 2 Official Site</a></li>
+      <li><a href="https://www.batmanarkhamknight.com/" target="_blank">Batman: Arkham Knight Official Site</a></li>
+    </ul>
+  </div>
+</Layout>
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+</BaseLayout>

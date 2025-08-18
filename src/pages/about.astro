@@ -1,27 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Brahadeesh",
+  country: "India",
+  occupation: "Gamer and Student",
+  hobbies: ["Paleontology", "Football", "gaming"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+const age = 21;
+
 
 ---
+<Layout title="About">
+  <div class="card">
+    <h2>About Me</h2>
+    <img src="/images/me.jpg" alt="My photo" width="297" height="397" style="object-fit: cover;" />
+    <ul>
+  <li>My name is {identity.firstName}.</li>
+  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+  {identity.hobbies.length >= 3 &&
+    <li>My hobbies are: {identity.hobbies[0]}, {identity.hobbies[2]} and {identity.hobbies[1]}</li>
+  }
+</ul>
+    <p>Hello! I’m a passionate gamer who loves deep, story-driven experiences. I created this blog to share my favorite games and connect with others who appreciate immersive worlds and strong narratives.</p>
+  </div>
+  {happy && <p>I am happy to be learning Astro!</p>}
 
+{finished && <p>I finished this tutorial!</p>}
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Games</h1>
-	<h1>PS5 and PS4 Game available</h1>
-	<b>Red Dead Redemption</b>
-  </body>
-</html>
-<Layout>
-	<Welcome />
+{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+{ age >= 18 ? <p>I am an adult.</p> : <p>I am not an adult.</p>}
+
+  
+  
 </Layout>
